@@ -16,7 +16,9 @@ Proyecto de analisis sintactico de expresiones aritmeticas y logicas usando JFle
 2. En **Run and Debug**, ejecute **Generar lexer y parser**.
 3. Ejecute **Probar archivo valido**, **Probar archivo con errores** o **Probar archivo mixto**.
 
-Los perfiles de ejecucion incluyen las bibliotecas de `lib/` y usan `bin/` como salida compilada.
+Los perfiles de ejecucion compilan automaticamente las clases principales antes de iniciar y usan `bin/` como salida compilada. La salida aparece en la consola de depuracion de VS Code; no es necesario abrir una terminal ni escribir comandos.
+
+Para cambiar de prueba, seleccione el perfil correspondiente en **Run and Debug** y presione el boton de iniciar. Para regenerar el lexer y parser despues de modificar `Lexer5.jflex` o `parser5.cup`, ejecute la tarea **Generar lexer y parser de actividad 6** desde **Terminal > Run Task**.
 
 ## Ejecucion desde PowerShell
 
