@@ -1,0 +1,4 @@
+bin/
+*.class
+Lexer5.java~
+.DS_Store

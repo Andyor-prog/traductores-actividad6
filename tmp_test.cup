@@ -1,0 +1,12 @@
+﻿package test;
+import java_cup.runtime.*;
+
+parser code {:
+    public void report_error(String message, Object info) {}
+:};
+
+terminal INT;
+non terminal expr;
+
+start with expr;
+expr ::= INT;
