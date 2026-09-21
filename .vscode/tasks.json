@@ -2,65 +2,40 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Compilar actividad 6",
+      "label": "Generar lexer y parser de Actividad 6",
       "type": "shell",
-      "command": "javac",
-      "args": [
-        "-cp",
-        "lib/*",
-        "-d",
-        "bin",
-        "act5_analisis_sintactico/*.java"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": "$javac",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-    },
-    {
-      "label": "Generar lexer y parser de actividad 6",
-      "type": "shell",
-      "command": "javac",
-      "args": [
-        "-cp",
-        "lib/*",
-        "-d",
-        "bin",
-        "act5_analisis_sintactico/GeneradorAct5.java"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": "$javac",
-      "dependsOn": [
-        "Compilar actividad 6"
-      ],
+      "command": "javac -cp \"lib/*\" -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp \"bin;lib/*\" act5_analisis_sintactico.GeneradorAct5",
       "windows": {
         "command": "powershell",
         "args": [
           "-NoProfile",
           "-Command",
-          "javac -cp \"lib/*\" -d bin act5_analisis_sintactico/GeneradorAct5.java; if ($LASTEXITCODE -eq 0) { java -cp \"bin;lib/*\" act5_analisis_sintactico.GeneradorAct5 }"
+          "\"New-Item -ItemType Directory -Force bin | Out-Null; javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java; if ($LASTEXITCODE -eq 0) { java -cp 'bin;lib/*' act5_analisis_sintactico.GeneradorAct5 }\""
         ]
       },
       "linux": {
         "command": "bash",
-        "args": [
-          "-lc",
-          "javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"
-        ]
+        "args": ["-lc", "mkdir -p bin && javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"]
       },
       "osx": {
         "command": "bash",
-        "args": [
-          "-lc",
-          "javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"
-        ]
-      }
+        "args": ["-lc", "mkdir -p bin && javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"]
+      },
+      "problemMatcher": "$javac"
+    },
+    {
+      "label": "Compilar Actividad 6",
+      "type": "shell",
+      "command": "javac -cp \"lib/*\" -d bin act5_analisis_sintactico/*.java",
+      "windows": {
+        "command": "powershell",
+        "args": ["-NoProfile", "-Command", "New-Item -ItemType Directory -Force bin | Out-Null; javac -cp 'lib/*' -d bin act5_analisis_sintactico/*.java"]
+      },
+      "linux": {"command": "bash", "args": ["-lc", "mkdir -p bin && javac -cp 'lib/*' -d bin act5_analisis_sintactico/*.java"]},
+      "osx": {"command": "bash", "args": ["-lc", "mkdir -p bin && javac -cp 'lib/*' -d bin act5_analisis_sintactico/*.java"]},
+      "dependsOn": "Generar lexer y parser de Actividad 6",
+      "problemMatcher": "$javac",
+      "group": {"kind": "build", "isDefault": true}
     }
   ]
 }

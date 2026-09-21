@@ -1,66 +1,76 @@
-# Actividad 6: Analisis sintactico de expresiones
+# Actividad 6: análisis sintáctico de expresiones
 
-Proyecto de analisis sintactico de expresiones aritmeticas y logicas usando JFlex y JavaCUP. Conserva el soporte previo para paquetes, importaciones, clases, atributos y constantes.
+Proyecto de la **Actividad 6** de Traductores de Lenguaje. Implementa un analizador sintáctico con **JFlex** y **JavaCUP** para reconocer métodos con sentencias `leer`, `escribir` y asignaciones con expresiones aritméticas y lógicas.
 
 ## Requisitos
 
-- Java JDK 8 o posterior.
-- Bibliotecas ubicadas en `lib/`:
+- JDK 8 o posterior.
+- Visual Studio Code con **Extension Pack for Java** (opcional).
+- Las bibliotecas incluidas en `lib/`:
   - `jflex-full-1.9.1.jar`
   - `java-cup-11b.jar`
   - `java-cup-11b-runtime.jar`
 
-## Ejecucion desde VS Code
+## Estructura
 
-1. Abra esta carpeta como workspace.
-2. En **Run and Debug**, ejecute **Generar lexer y parser**.
-3. Ejecute **Probar archivo valido**, **Probar archivo con errores** o **Probar archivo mixto**.
-
-Los perfiles de ejecucion compilan automaticamente las clases principales antes de iniciar y usan `bin/` como salida compilada. La salida aparece en la consola de depuracion de VS Code; no es necesario abrir una terminal ni escribir comandos.
-
-Para cambiar de prueba, seleccione el perfil correspondiente en **Run and Debug** y presione el boton de iniciar. Para regenerar el lexer y parser despues de modificar `Lexer5.jflex` o `parser5.cup`, ejecute la tarea **Generar lexer y parser de actividad 6** desde **Terminal > Run Task**.
-
-## Ejecucion desde PowerShell
-
-```powershell
-javac -cp "lib/*" -d bin GeneradorAct5.java
-java -cp "bin;lib/*" act5_analisis_sintactico.GeneradorAct5
-javac -cp "lib/*" -d bin Lexer5.java Parser5.java PruebaAct5.java sym.java
-java -cp "bin;lib/*" act5_analisis_sintactico.PruebaAct5 prueba_valida.txt
+```text
+act5_analisis_sintactico/
+├── GeneradorAct5.java
+├── PruebaAct5.java
+├── Lexer5.jflex
+└── parser5.cup
+lib/
+pruebas/
+├── prueba_valida.txt
+├── prueba_errores.txt
+└── prueba_mixta.txt
+.vscode/
 ```
 
-## Archivos principales
+> El nombre histórico del paquete y de las clases se conserva únicamente para mantener compatibilidad con los archivos generados. La gramática y las pruebas corresponden exclusivamente a la Actividad 6.
 
-- `Lexer5.jflex`: reglas del analizador lexico.
-- `parser5.cup`: gramatica del analizador sintactico.
-- `GeneradorAct5.java`: genera el lexer y el parser.
-- `PruebaAct5.java`: lee un archivo y ejecuta el analisis.
-- `prueba_valida.txt`: lecturas, escrituras y asignaciones validas.
-- `prueba_errores.txt`: errores de listas, escritura y expresiones.
-- `prueba_mixta.txt`: errores recuperables y sentencias posteriores validas.
+## Ejecutar en VS Code
 
-## Estructuras reconocidas
+1. Clona el repositorio.
+2. Abre **la carpeta raíz** del repositorio, no archivos individuales.
+3. Ejecuta `Generar lexer y parser de Actividad 6`.
+4. Ejecuta uno de los perfiles de prueba:
+   - `Probar Actividad 6 - válido`
+   - `Probar Actividad 6 - errores`
+   - `Probar Actividad 6 - mixto`
 
-- Atributos o variables individuales y multiples, con o sin inicializacion.
-- Constantes `final` con inicializacion obligatoria.
-- Tipos `int`, `float`, `double`, `char`, `boolean`, `String` y tipos identificados.
-- Valores numericos, decimales, cadenas, caracteres y booleanos.
-- Paquetes, importaciones y clases.
-- Metodos `void` con sentencias `leer`, `escribir` y asignaciones.
-- Expresiones con `+`, `-`, `*`, `/`, `%`, `&&`, `||` y `!`, respetando precedencia.
+## Ejecutar desde terminal
 
-El analizador informa reglas reconocidas y errores con linea, columna y token encontrado. Para errores de sentencias, intenta recuperar el analisis hasta el siguiente punto y coma.
+### Windows PowerShell
 
-## Tabla de resultados
+```powershell
+New-Item -ItemType Directory -Force bin | Out-Null
+javac -cp "lib/*" -d bin act5_analisis_sintactico/GeneradorAct5.java
+java -cp "bin;lib/*" act5_analisis_sintactico.GeneradorAct5
+javac -cp "lib/*" -d bin act5_analisis_sintactico/*.java
+java -cp "bin;lib/*" act5_analisis_sintactico.PruebaAct5 pruebas/prueba_valida.txt
+```
 
-| Prueba | Tipo | Resultado esperado | Resultado obtenido | Estado |
-|---|---|---|---|---|
-| Lectura multiple | Valida | Reconocer `leer(a,b);` | Regla reconocida: lectura | Correcta |
-| Escritura con expresion | Valida | Reconocer `escribir(a+b);` | Regla reconocida: escritura | Correcta |
-| Asignacion aritmetica | Valida | Reconocer `total = a + b;` | Regla reconocida: asignacion | Correcta |
-| Asignacion logica | Valida | Reconocer `estado = !activo;` | Regla reconocida: asignacion | Correcta |
-| Falta de coma | Invalida | Reportar error con ubicacion | Error con linea y columna | Correcta |
-| Elemento faltante | Invalida | Reportar error recuperable | Se continua con la siguiente sentencia | Correcta |
-| Identificador faltante | Invalida | Reportar causa | Identificador esperado en la asignacion | Correcta |
+### Linux/macOS
 
-Las pruebas se ejecutan con `prueba_valida.txt`, `prueba_errores.txt` y `prueba_mixta.txt`. La prueba mixta demuestra la recuperacion y el reconocimiento de declaraciones posteriores.
+```bash
+mkdir -p bin
+javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java
+java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5
+javac -cp 'lib/*' -d bin act5_analisis_sintactico/*.java
+java -cp 'bin:lib/*' act5_analisis_sintactico.PruebaAct5 pruebas/prueba_valida.txt
+```
+
+Para probar otro archivo, cambia la ruta final por `pruebas/prueba_errores.txt` o `pruebas/prueba_mixta.txt`.
+
+## Funcionalidad de la Actividad 6
+
+- Lecturas: `leer(a);`, `leer(a,b,c);`
+- Escrituras de valores, cadenas y expresiones.
+- Asignaciones aritméticas con `+`, `-`, `*`, `/` y `%`.
+- Expresiones lógicas con `&&`, `||` y `!`.
+- Paréntesis y precedencia de operadores.
+- Reporte de línea, columna y token ante errores sintácticos.
+- Recuperación de errores hasta el siguiente punto y coma cuando es posible.
+
+Los archivos de `pruebas/` contienen los casos válido, inválido y combinado solicitados por la actividad.

@@ -3,60 +3,42 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Generar lexer y parser",
+      "name": "Generar lexer y parser de Actividad 6",
       "request": "launch",
       "mainClass": "act5_analisis_sintactico.GeneradorAct5",
       "cwd": "${workspaceFolder}",
-      "classPaths": [
-        "${workspaceFolder}/bin",
-        "${workspaceFolder}/lib/*"
-      ],
-      "preLaunchTask": "Generar lexer y parser de actividad 6"
+      "classPaths": ["${workspaceFolder}/bin", "${workspaceFolder}/lib/*"],
+      "preLaunchTask": "Generar lexer y parser de Actividad 6"
     },
     {
       "type": "java",
-      "name": "Probar archivo valido",
+      "name": "Probar Actividad 6 - válido",
       "request": "launch",
       "mainClass": "act5_analisis_sintactico.PruebaAct5",
-      "args": [
-        "prueba_valida.txt"
-      ],
+      "args": ["pruebas/prueba_valida.txt"],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "Compilar actividad 6",
-      "classPaths": [
-        "${workspaceFolder}/bin",
-        "${workspaceFolder}/lib/*"
-      ]
+      "classPaths": ["${workspaceFolder}/bin", "${workspaceFolder}/lib/*"],
+      "preLaunchTask": "Compilar Actividad 6"
     },
     {
       "type": "java",
-      "name": "Probar archivo con errores",
+      "name": "Probar Actividad 6 - errores",
       "request": "launch",
       "mainClass": "act5_analisis_sintactico.PruebaAct5",
-      "args": [
-        "prueba_errores.txt"
-      ],
+      "args": ["pruebas/prueba_errores.txt"],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "Compilar actividad 6",
-      "classPaths": [
-        "${workspaceFolder}/bin",
-        "${workspaceFolder}/lib/*"
-      ]
+      "classPaths": ["${workspaceFolder}/bin", "${workspaceFolder}/lib/*"],
+      "preLaunchTask": "Compilar Actividad 6"
     },
     {
       "type": "java",
-      "name": "Probar archivo mixto",
+      "name": "Probar Actividad 6 - mixto",
       "request": "launch",
       "mainClass": "act5_analisis_sintactico.PruebaAct5",
-      "args": [
-        "prueba_mixta.txt"
-      ],
+      "args": ["pruebas/prueba_mixta.txt"],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "Compilar actividad 6",
-      "classPaths": [
-        "${workspaceFolder}/bin",
-        "${workspaceFolder}/lib/*"
-      ]
+      "classPaths": ["${workspaceFolder}/bin", "${workspaceFolder}/lib/*"],
+      "preLaunchTask": "Compilar Actividad 6"
     }
   ]
 }
