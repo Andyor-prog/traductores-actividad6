@@ -1,55 +1,62 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Generar lexer y parser",
-            "request": "launch",
-            "mainClass": "act5_analisis_sintactico.GeneradorAct5",
-            "cwd": "${workspaceFolder}",
-            "classPaths": [
-                "${workspaceFolder}/bin",
-                "${workspaceFolder}/lib/*"
-            ]
-        },
-        {
-            "type": "java",
-            "name": "Probar archivo valido",
-            "request": "launch",
-            "mainClass": "act5_analisis_sintactico.PruebaAct5",
-            "args": "prueba_valida.txt",
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Compilar actividad 6",
-            "classPaths": [
-                "${workspaceFolder}/bin",
-                "${workspaceFolder}/lib/*"
-            ]
-        },
-        {
-            "type": "java",
-            "name": "Probar archivo con errores",
-            "request": "launch",
-            "mainClass": "act5_analisis_sintactico.PruebaAct5",
-            "args": "prueba_errores.txt",
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Compilar actividad 6",
-            "classPaths": [
-                "${workspaceFolder}/bin",
-                "${workspaceFolder}/lib/*"
-            ]
-        },
-        {
-            "type": "java",
-            "name": "Probar archivo mixto",
-            "request": "launch",
-            "mainClass": "act5_analisis_sintactico.PruebaAct5",
-            "args": "prueba_mixta.txt",
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Compilar actividad 6",
-            "classPaths": [
-                "${workspaceFolder}/bin",
-                "${workspaceFolder}/lib/*"
-            ]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Generar lexer y parser",
+      "request": "launch",
+      "mainClass": "act5_analisis_sintactico.GeneradorAct5",
+      "cwd": "${workspaceFolder}",
+      "classPaths": [
+        "${workspaceFolder}/bin",
+        "${workspaceFolder}/lib/*"
+      ],
+      "preLaunchTask": "Generar lexer y parser de actividad 6"
+    },
+    {
+      "type": "java",
+      "name": "Probar archivo valido",
+      "request": "launch",
+      "mainClass": "act5_analisis_sintactico.PruebaAct5",
+      "args": [
+        "prueba_valida.txt"
+      ],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Compilar actividad 6",
+      "classPaths": [
+        "${workspaceFolder}/bin",
+        "${workspaceFolder}/lib/*"
+      ]
+    },
+    {
+      "type": "java",
+      "name": "Probar archivo con errores",
+      "request": "launch",
+      "mainClass": "act5_analisis_sintactico.PruebaAct5",
+      "args": [
+        "prueba_errores.txt"
+      ],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Compilar actividad 6",
+      "classPaths": [
+        "${workspaceFolder}/bin",
+        "${workspaceFolder}/lib/*"
+      ]
+    },
+    {
+      "type": "java",
+      "name": "Probar archivo mixto",
+      "request": "launch",
+      "mainClass": "act5_analisis_sintactico.PruebaAct5",
+      "args": [
+        "prueba_mixta.txt"
+      ],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Compilar actividad 6",
+      "classPaths": [
+        "${workspaceFolder}/bin",
+        "${workspaceFolder}/lib/*"
+      ]
+    }
+  ]
 }
