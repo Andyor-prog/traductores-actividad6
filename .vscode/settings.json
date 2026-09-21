@@ -3,11 +3,12 @@
     "lib/**/*.jar"
   ],
   "java.project.sourcePaths": [
-    "."
+    "act5_analisis_sintactico"
   ],
   "java.project.outputPath": "bin",
   "java.configuration.updateBuildConfiguration": "automatic",
   "files.exclude": {
-    "**/bin": true
+    "**/bin": true,
+    "**/*.class": true
   }
 }

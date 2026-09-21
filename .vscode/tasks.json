@@ -10,7 +10,7 @@
         "lib/*",
         "-d",
         "bin",
-        "*.java"
+        "act5_analisis_sintactico/*.java"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -30,7 +30,7 @@
         "lib/*",
         "-d",
         "bin",
-        "GeneradorAct5.java"
+        "act5_analisis_sintactico/GeneradorAct5.java"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -44,21 +44,21 @@
         "args": [
           "-NoProfile",
           "-Command",
-          "javac -cp \"lib/*\" -d bin GeneradorAct5.java; if ($LASTEXITCODE -eq 0) { java -cp \"bin;lib/*\" act5_analisis_sintactico.GeneradorAct5 }"
+          "javac -cp \"lib/*\" -d bin act5_analisis_sintactico/GeneradorAct5.java; if ($LASTEXITCODE -eq 0) { java -cp \"bin;lib/*\" act5_analisis_sintactico.GeneradorAct5 }"
         ]
       },
       "linux": {
         "command": "bash",
         "args": [
           "-lc",
-          "javac -cp 'lib/*' -d bin GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"
+          "javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"
         ]
       },
       "osx": {
         "command": "bash",
         "args": [
           "-lc",
-          "javac -cp 'lib/*' -d bin GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"
+          "javac -cp 'lib/*' -d bin act5_analisis_sintactico/GeneradorAct5.java && java -cp 'bin:lib/*' act5_analisis_sintactico.GeneradorAct5"
         ]
       }
     }
